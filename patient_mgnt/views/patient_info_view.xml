@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="patient_info_form_view" model="ir.ui.view">
+            <field name="name">patient info form view</field>
+            <field name="model">patient.info</field>
+            <field name="arch" type="xml">
+                <form string="Patient Information">
+                    <group>
+                        <field name="name"/>
+                        <field name="pat_code"/>
+                        <field name="pat_gender"/>
+                        <field name="pat_weight"/>
+                    </group>
+                    <group>
+                        <field name="pat_address"/>
+                        <field name="pat_mobile"/>
+                        <field name="appoint_date"/>
+                        <field name="disease"/>
+                        <field name="doctor_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record id="patient_info_list_view" model="ir.ui.view">
+            <field name="name">patient info list view</field>
+            <field name="model">patient.info</field>
+            <field name="arch" type="xml">
+                <tree string="Patient Information">
+                        <field name="name"/>
+                        <field name="pat_code"/>
+                        <field name="pat_gender"/>
+                        <field name="pat_weight"/>
+                        <field name="pat_address"/>
+                        <field name="pat_mobile"/>
+                        <field name="appoint_date"/>
+                        <field name="disease"/>
+                        <field name="doctor_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="patient_info_search_view" model="ir.ui.view">
+            <field name="name">patient info search view</field>
+            <field name="model">patient.info</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="pat_code"/>
+                    <field name="pat_gender"/>
+                    <field name="appoint_date"/>
+
+                </search>
+            </field>
+        </record>
+
+
+
+        <record id="action_patient_info" model="ir.actions.act_window">
+            <field name="name">Patient</field>
+            <field name="res_model">patient.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <menuitem id="patient_mgnt_root" name="Patient Management"/>
+
+        <menuitem id="patient_mgnt_info_config" name="Patient Config" parent="patient_mgnt_root"/>
+
+        <menuitem id="patient_mgnt_patient_menu" name="Patient Information" action="action_patient_info"
+                  parent="patient_mgnt_info_config"/>
+
+    </data>
+</flectra>

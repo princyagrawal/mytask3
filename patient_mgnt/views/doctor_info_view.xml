@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="doctor_info_form_view" model="ir.ui.view">
+            <field name="name">doctor info form view</field>
+            <field name="model">doctor.info</field>
+            <field name="arch" type="xml">
+                <form string="Doctor Information">
+
+                        <header>
+
+
+                              <button name="state_pending"  string="Pending"   type="object"  class="oe_highlight"/>
+                              <button name="state_confirm"  type="object"  string="Confirm" class="oe_highlight"/>
+                              <button name="state_rejected"  type="object"   string="reject" class="oe_highlight"/>
+
+                              <field name="state" widget="statusbar" statusbar_visible="success,pending,reject"/>
+                        </header>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="doc_code"/>
+                        <field name="doc_gender"/>
+                        <field name="doc_address"/>
+                    </group>
+                    <group>
+                        <field name="doc_mobile"/>
+                        <field name="appoint_date"/>
+                        <field name="patient_line"/>
+                        <field name="disease_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record id="doctor_info_list_view" model="ir.ui.view">
+            <field name="name">doctor info list view</field>
+            <field name="model">doctor.info</field>
+            <field name="arch" type="xml">
+                <tree string="Doctor Information">
+                        <field name="name"/>
+                        <field name="doc_code"/>
+                        <field name="doc_gender"/>
+                        <field name="doc_address"/>
+                        <field name="doc_mobile"/>
+                        <field name="appoint_date"/>
+                        <field name="patient_line"/>
+                        <field name="disease_ids"/>
+                        <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="doctor_info_search_view" model="ir.ui.view">
+            <field name="name">doctor info search view</field>
+            <field name="model">doctor.info</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="doc_code"/>
+                    <field name="doc_gender"/>
+                    <field name="appoint_date"/>
+
+                </search>
+            </field>
+        </record>
+
+
+
+        <record id="action_doctor_info" model="ir.actions.act_window">
+            <field name="name">Doctor</field>
+            <field name="res_model">doctor.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <menuitem id="patient_mgnt_root" name="Patient Management"/>
+
+        <menuitem id="patient_mgnt_info_config" name="Patient Config" parent="patient_mgnt_root"/>
+
+        <menuitem id="patient_mgnt_doctor_menu" name="Doctor Information" action="action_doctor_info"
+                  parent="patient_mgnt_info_config"/>
+
+    </data>
+</flectra>

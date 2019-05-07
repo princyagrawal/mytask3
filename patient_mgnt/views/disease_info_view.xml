@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="disease_info_form_view" model="ir.ui.view">
+            <field name="name">disease info form view</field>
+            <field name="model">disease.info</field>
+            <field name="arch" type="xml">
+                <form string="Disease Information">
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="doctor_ids"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="disease_info_list_view" model="ir.ui.view">
+            <field name="name">disease info list view</field>
+            <field name="model">disease.info</field>
+            <field name="arch" type="xml">
+                <tree string="Disease Information">
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="doctor_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_disease_info" model="ir.actions.act_window">
+            <field name="name">Disease Info</field>
+            <field name="res_model">disease.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+
+        </record>
+
+        <menuitem id="patient_mgnt_disease_menu" name="Disease Information" action="action_disease_info"
+                  parent="patient_mgnt_info_config"/>
+
+
+
+    </data>
+</flectra>
